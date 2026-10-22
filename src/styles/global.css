@@ -1,0 +1,396 @@
+/* ==========================================================
+   Globale Styles: Farben, Grundlayout, Buttons, Formulare
+   Komponenten-spezifisches CSS liegt neben der Komponente.
+   ========================================================== */
+
+:root {
+  --green-900: #063d27;
+  --green-700: #0b6e43;
+  --green-500: #2fa86a;
+  --green-100: #e3f4ea;
+  --accent: #ffc83d;
+  --accent-dark: #e0a800;
+  --blue: #3d7bfd;
+  --red: #d64545;
+  --red-100: #fde8e8;
+
+  --bg: #f3f7f4;
+  --surface: #ffffff;
+  --text: #14231b;
+  --muted: #5d6b63;
+  --border: #d9e3dc;
+
+  --radius: 12px;
+  --shadow: 0 1px 2px rgb(6 61 39 / 6%), 0 4px 16px rgb(6 61 39 / 6%);
+
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  margin: 0 0 0.5rem;
+}
+h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); }
+h2 { font-size: 1.25rem; margin-top: 2rem; }
+h3 { font-size: 1.05rem; }
+
+a { color: var(--green-700); }
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.muted { color: var(--muted); }
+.small { font-size: 0.875rem; }
+.center { text-align: center; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ---------- App-Rahmen (Layout.jsx) ---------- */
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+.header {
+  background: var(--green-900);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 64px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.2rem;
+  text-decoration: none;
+  margin-right: auto;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.nav__link {
+  color: #d4eadc;
+  text-decoration: none;
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+.nav__link:hover { color: #fff; background: rgb(255 255 255 / 10%); }
+.nav__link.active { color: var(--green-900); background: var(--accent); }
+
+.player-select select {
+  margin-left: 0.5rem;
+  background: var(--green-700);
+  color: #fff;
+  border: 1px solid rgb(255 255 255 / 25%);
+}
+
+.menu-toggle {
+  display: none;
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgb(255 255 255 / 35%);
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  font: inherit;
+  cursor: pointer;
+}
+
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 1.25rem 0;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+/* Mobil: Navigation klappt unter die Kopfzeile */
+@media (max-width: 720px) {
+  .menu-toggle { display: block; }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.75rem 16px 1rem;
+    background: var(--green-900);
+    box-shadow: 0 8px 16px rgb(0 0 0 / 20%);
+  }
+  .nav--open { display: flex; }
+  .player-select select { margin: 0.5rem 0 0; width: 100%; }
+}
+
+/* ---------- Seiten-Grundgerüst ---------- */
+
+.page__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.page--narrow {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+}
+.card > h2:first-child { margin-top: 0; }
+
+.link-more {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-weight: 600;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.1rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: var(--green-100);
+  color: var(--green-700);
+}
+
+/* ---------- Buttons ---------- */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s, transform 0.1s;
+}
+.button:active:not(:disabled) { transform: translateY(1px); }
+.button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.button--primary { background: var(--green-700); color: #fff; }
+.button--primary:hover:not(:disabled) { background: var(--green-900); }
+
+.button--accent { background: var(--accent); color: var(--green-900); }
+.button--accent:hover { background: var(--accent-dark); }
+
+.button--light { background: rgb(255 255 255 / 15%); color: #fff; border-color: rgb(255 255 255 / 40%); }
+.button--light:hover { background: rgb(255 255 255 / 25%); }
+
+.button--ghost { background: var(--surface); color: var(--green-700); border-color: var(--border); }
+.button--ghost:hover:not(:disabled) { background: var(--green-100); }
+
+.button--danger { background: var(--surface); color: var(--red); border-color: #f1c4c4; }
+.button--danger:hover { background: var(--red-100); }
+
+/* ---------- Formulare ---------- */
+
+input,
+select {
+  font: inherit;
+  color: inherit;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+input:focus-visible,
+select:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.form label { display: block; font-weight: 600; margin-bottom: 0.4rem; }
+.form__row { display: flex; gap: 0.5rem; }
+.form__row input { flex: 1; min-width: 0; }
+.form__row input[aria-invalid='true'] { border-color: var(--red); background: var(--red-100); }
+.form__hint,
+.form__error { margin: 0.4rem 0 0; font-size: 0.875rem; }
+.form__hint { color: var(--muted); }
+.form__error { color: var(--red); font-weight: 600; }
+
+@media (max-width: 480px) {
+  .form__row { flex-direction: column; }
+}
+
+/* ---------- Meldungen (Notice.jsx) ---------- */
+
+.notice {
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  margin: 0.75rem 0;
+  border-left: 4px solid;
+}
+.notice--info { background: #e8f0ff; border-color: var(--blue); }
+.notice--success { background: var(--green-100); border-color: var(--green-500); }
+.notice--error { background: var(--red-100); border-color: var(--red); }
+
+/* ---------- Spieltag-Wechsler & Umschalter ---------- */
+
+.switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.switcher .button { width: 42px; height: 42px; padding: 0; font-size: 1.4rem; }
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.segmented {
+  display: inline-flex;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 3px;
+}
+.segmented button {
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-weight: 600;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  color: var(--muted);
+}
+.segmented .is-active { background: var(--green-700); color: #fff; }
+
+/* ---------- Tipp-Seite ---------- */
+
+.tippen-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 1.5rem;
+  align-items: start;
+}
+.tippen-grid aside { position: sticky; top: 84px; }
+
+@media (max-width: 900px) {
+  .tippen-grid { grid-template-columns: 1fr; }
+  .tippen-grid aside { position: static; }
+}
+
+.match-list {
+  display: grid;
+  gap: 0.75rem;
+  transition: opacity 0.2s;
+}
+.match-list.is-loading { opacity: 0.5; }
+
+.save-bar {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding: 0.75rem 0;
+  background: linear-gradient(to top, var(--bg) 70%, transparent);
+}
+.save-bar .notice { margin: 0; flex: 1; }
+
+/* ---------- Spielerliste ---------- */
+
+.player-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+.player-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.6rem 0.6rem 0.6rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-weight: 600;
+}
+.player-list li.is-me { border-color: var(--green-500); background: var(--green-100); }
+.player-list__actions { display: flex; align-items: center; gap: 0.4rem; }
+.player-list .button { padding: 0.35rem 0.8rem; font-size: 0.875rem; }
+
+/* ---------- Punktefarben (MatchCard, Landing Page) ---------- */
+
+.points--3 { --points-color: var(--accent); --points-text: var(--green-900); }
+.points--2 { --points-color: var(--green-500); --points-text: #fff; }
+.points--1 { --points-color: var(--blue); --points-text: #fff; }
+.points--0,
+.points--none { --points-color: #e4e9e6; --points-text: var(--muted); }

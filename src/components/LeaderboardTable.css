@@ -1,0 +1,40 @@
+.leaderboard {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.leaderboard th,
+.leaderboard td {
+  padding: 0.6rem 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.leaderboard th {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.leaderboard tbody tr:last-child td { border-bottom: 0; }
+.leaderboard .num { text-align: right; font-variant-numeric: tabular-nums; }
+.leaderboard .points { font-weight: 800; font-size: 1.05rem; color: var(--green-700); }
+.leaderboard .rank { display: inline-block; min-width: 1.75rem; font-weight: 700; }
+
+.leaderboard tr.is-me td { background: #fff6da; }
+.leaderboard tr.is-me td:first-child { box-shadow: inset 4px 0 0 var(--accent); }
+
+.leaderboard--compact th,
+.leaderboard--compact td { padding: 0.45rem 0.4rem; }
+
+@media (max-width: 480px) {
+  .leaderboard th,
+  .leaderboard td { padding: 0.5rem 0.3rem; font-size: 0.9rem; }
+  .leaderboard th { text-transform: none; letter-spacing: 0; font-size: 0.75rem; }
+  .leaderboard .hide-sm { display: none; }
+}
+
+/* Sicherheitsnetz: Tabelle darf auf sehr schmalen Bildschirmen seitlich scrollen */
+.table-scroll { overflow-x: auto; }
+
