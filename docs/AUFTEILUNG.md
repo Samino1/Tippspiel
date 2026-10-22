@@ -43,9 +43,13 @@ Laut Skript erklärt jedes Gruppenmitglied einen Teil des Codes. Wichtige Punkte
 3. die Verwaltung des Zustands (State) und die Reaktion auf Benutzerereignisse (Events),
 4. die Anbindung an ein Backend oder eine Datenbank.
 
+**Lernunterlagen:** Zu jedem Teil gibt es eine ausführliche Erklärung in [`docs/lernen/`](lernen/) und einen Lernzettel zu allen Pferd-Kapiteln: [`LERNZETTEL.md`](lernen/LERNZETTEL.md).
+
 **Unser Vorschlag** für 5 Personen: die vier Punkte aus dem Skript plus einen fünften Teil für die externe API und die Validierung. Zu jedem Teil stehen die passenden Pferd-Kapitel daneben. Weil der Prüfer **jede Person** zu allgemeinen Web-Technologien fragt (Folie 30), sollten aber alle **alle** Pferd-Kapitel können.
 
 ### Teil 1 – Projektstruktur, Routing, Landing Page
+→ [Erklärung](lernen/teil-1-struktur-routing.md)
+
 **Dateien:** `package.json`, `vite.config.js`, `index.html`, `src/main.jsx`, `src/App.jsx`, `src/components/Layout.jsx`, `src/pages/LandingPage.jsx`
 - Ordneraufbau. `npm run dev` startet mit `concurrently` Frontend und Backend zusammen.
 - Vite leitet `/api` an das Backend auf Port 3001 weiter. Frontend und API haben dadurch denselben Origin, und CORS spielt keine Rolle (Folien 685–689).
@@ -55,6 +59,8 @@ Laut Skript erklärt jedes Gruppenmitglied einen Teil des Codes. Wichtige Punkte
 Pferd-Kapitel: Internet (Folien 53–65, u. a. OSI, IP, IPv4/IPv6, localhost, TCP/UDP), HTML (129–141, 146, 161, 179, 197, 201, 210), Aufbau einer JS-Datei und ES-Module (384), JavaScript laden (391)
 
 ### Teil 2 – Wichtige Komponente: `MatchCard` + Styling
+→ [Erklärung](lernen/teil-2-komponente-styling.md)
+
 **Dateien:** `src/components/MatchCard.jsx` (+ `.css`), `GoalInput.jsx`, `TeamBadge.jsx`, `MatchdaySwitcher.jsx`, `src/styles/global.css`
 - Props rein (`match`, `draft`, `error`), Ereignis raus (`onDraftChange`)
 - `MatchCard` setzt sich aus `TeamBadge` und `GoalInput` zusammen
@@ -63,6 +69,8 @@ Pferd-Kapitel: Internet (Folien 53–65, u. a. OSI, IP, IPv4/IPv6, localhost, TC
 Pferd-Kapitel: CSS komplett (Folien 240–248, 253, 261, 263–264, 277, 285 Spezifität, 304 Einheiten, 322 Box Model/Layouts/Positioning, 361 Animationen, 368 Responsive Design)
 
 ### Teil 3 – State & Events
+→ [Erklärung](lernen/teil-3-state-events.md)
+
 **Dateien:** `src/pages/TippenPage.jsx`, `src/context/PlayerContext.jsx`, `src/hooks/useCurrentMatchday.js`
 - `useState` für Spiele, Eingaben und Meldungen. Fehler, geänderte Tipps und Punkte werden bei jedem Rendern aus dem State berechnet.
 - `useEffect` lädt Daten neu, wenn Spieltag oder Spieler wechseln
@@ -72,6 +80,8 @@ Pferd-Kapitel: CSS komplett (Folien 240–248, 253, 261, 263–264, 277, 285 Spe
 Pferd-Kapitel: DOM (611, 622), Events (638, 646), JavaScript-Grundlagen (403 Datentypen, 427 Variablen, 443 Operatoren, 450 Type Coercion, 462 Kontrollfluss, 476 Objekte, 490 Arrays, 512 Map/Set, 516 Funktionen, 534 Klassen, 545 Iteratoren)
 
 ### Teil 4 – Backend & Datenbank
+→ [Erklärung](lernen/teil-4-backend-datenbank.md)
+
 **Dateien:** `server/index.js`, `server/db.js`, `server/seed.js`, `src/api.js`
 - REST-Routen nach dem Muster aus Folie 723, die ID steht im Pfad (Folie 739):
   `GET /api/players`, `POST /api/players`, `DELETE /api/players/:id`, `PUT /api/players/:id/tips`
@@ -82,6 +92,8 @@ Pferd-Kapitel: DOM (611, 622), Events (638, 646), JavaScript-Grundlagen (403 Dat
 Pferd-Kapitel: HTTP (652–690, u. a. Methoden, Statuscodes, Cookies, CSP, Origin, CORS), Verbindung absichern (705), Authentifizierung (710), REST (720–740)
 
 ### Teil 5 – Externe API & Validierung
+→ [Erklärung](lernen/teil-5-api-validierung.md)
+
 **Dateien:** `server/openligadb.js`, `shared/scoring.js`, `shared/validation.js`
 - OpenLigaDB mit `fetch` und `async/await`, Zwischenspeicher für 60 Sekunden
 - Punkte: 3 für das exakte Ergebnis, 2 für die richtige Tordifferenz, 1 für die richtige Tendenz
@@ -105,4 +117,4 @@ Pferd-Kapitel: Exceptions (558), Promises/async/await und Event Loop (563–581)
 - [ ] `npm run build` läuft ohne Fehler durch
 - [ ] Node.js ≥ 24 ist installiert
 - [ ] Jede Person kann ihren Teil des Codes erklären
-- [ ] **Unsere Empfehlung, nicht aus dem Skript:** Am 25.11. klären, ob der Prüfungsrechner Internet hat. Ohne Internet lädt die App keine Spieldaten.
+- [x] Der Prüfungsrechner hat Internet (nötig für OpenLigaDB). Das ist geklärt.

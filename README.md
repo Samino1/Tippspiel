@@ -40,7 +40,7 @@ Beim ersten Start ist die Datenbank leer. Der Server legt dann automatisch vier 
 |---|---|---|
 | 3 | Exaktes Ergebnis | Tipp 2:1, Ergebnis 2:1 |
 | 2 | Richtige Tordifferenz | Tipp 2:1, Ergebnis 3:2 |
-| 1 | Richtige Tendenz (Sieg/Remis/Niederlage) | Tipp 2:1, Ergebnis 1:0 |
+| 1 | Richtige Tendenz (Sieg/Remis/Niederlage) | Tipp 2:1, Ergebnis 3:0 |
 
 Bei Punktgleichheit entscheidet die Anzahl der Volltreffer.
 
@@ -92,4 +92,4 @@ tippspiel/
 | PUT | `/api/players/:id/tips` | Tipps eines Spielers speichern (`{ tips: [{ matchId, home, away }] }`) |
 | GET | `/api/leaderboard?matchday=` | Rangliste (Saison oder ein Spieltag) |
 
-Mehr zur Aufteilung für die Präsentation steht in [docs/AUFTEILUNG.md](docs/AUFTEILUNG.md). Die festgelegten Projektregeln für KI-Tools stehen in [SYSTEM.md](SYSTEM.md) (siehe Skript, Folien 89 und 98).
+Mehr zur Aufteilung für die Präsentation steht in [docs/AUFTEILUNG.md](docs/AUFTEILUNG.md). Lernunterlagen zum Code und zu den prüfungsrelevanten Kapiteln liegen in [docs/lernen/](docs/lernen/). Die festgelegten Projektregeln für KI-Tools stehen in [SYSTEM.md](SYSTEM.md) (siehe Skript, Folien 89 und 98).

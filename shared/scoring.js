@@ -2,7 +2,7 @@
 // Punktelogik des Tippspiels
 //   3 Punkte: exaktes Ergebnis       (Tipp 2:1, Ergebnis 2:1)
 //   2 Punkte: richtige Tordifferenz  (Tipp 2:1, Ergebnis 3:2)
-//   1 Punkt:  richtige Tendenz       (Tipp 2:1, Ergebnis 1:0 – Heimsieg stimmt)
+//   1 Punkt:  richtige Tendenz       (Tipp 2:1, Ergebnis 3:0 – Heimsieg stimmt)
 //   0 Punkte: sonst
 
 export const POINTS = { exact: 3, difference: 2, tendency: 1 };

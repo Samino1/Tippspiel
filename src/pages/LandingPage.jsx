@@ -15,7 +15,7 @@ const STEPS = [
 const RULES = [
   { points: POINTS.exact, title: 'Volltreffer', example: 'Tipp 2:1 · Ergebnis 2:1' },
   { points: POINTS.difference, title: 'Tordifferenz', example: 'Tipp 2:1 · Ergebnis 3:2' },
-  { points: POINTS.tendency, title: 'Tendenz', example: 'Tipp 2:1 · Ergebnis 1:0' },
+  { points: POINTS.tendency, title: 'Tendenz', example: 'Tipp 2:1 · Ergebnis 3:0' },
 ];
 
 export default function LandingPage() {
